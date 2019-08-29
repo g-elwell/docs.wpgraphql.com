@@ -117,9 +117,9 @@ Extending mutation for post
 		 * @param string $default_post_status The default status posts should use if an intended status wasn't set
 		 */
 
-		add_action( 'graphql_post_object_mutation_update_additional_data', 'graphql_register_edit_mutation', 10, 5 );
+		add_action( 'graphql_post_object_mutation_update_additional_data', 'graphql_register_edit_mutation', 10, 6 );
 
-		function graphql_register_edit_mutation( $post_id, $input, $mutation_name, $context, $info ) {
+		function graphql_register_edit_mutation( $post_id, $input, $post_type_object, $mutation_name, $context, $info ) {
 			// Consider other sanitization if necessary and validation such as which
 			// user role/capability should be able to insert this value, etc.
 			if ( ! empty( $input['example'] ) ) {
